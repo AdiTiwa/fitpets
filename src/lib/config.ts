@@ -1,15 +1,17 @@
-let process: any;
+import data from './firebase_config.json' assert { type: 'json' };
 
-const p = process?.env ? process.env : import.meta.env;
+/* put firebase config in a firebase_config.json file next to this config.ts file */
 
-/* add config to a .env file in the base directory (next to .gitignore, .npmrc, etc.) with the variable names below */
+console.log(data)
 
-export const fire_config = {
-    apiKey: p.FIREBASE_apiKey,
-    authDomain: p.FIREBASE_authDomain,
-    projectId: p.FIREBASE_projectId,
-    storageBucket: p.FIREBASE_storageBucket,
-    messagingSenderId: p.FIREBASE_messagingSenderId,
-    appId: p.FIREBASE_appId,
-    measurementId: p.FIREBASE_measurementId
-}
+export const fire_config = data;
+
+import { initializeApp } from "firebase/app";
+import { getFirestore } from "firebase/firestore";
+import { getAuth } from "firebase/auth";
+
+const app = initializeApp(fire_config);
+const db = getFirestore(app);
+const auth = getAuth(app);
+
+export { db, auth, app }

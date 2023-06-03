@@ -2,4 +2,4 @@
 
 </script>
 
-<h1 >Battle Page</h1>
+<h1 class="flex justify-center">Battle Page</h1>

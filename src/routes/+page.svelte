@@ -8,5 +8,5 @@
 </svelte:head>
 
 <section>
-	
+	<h1 class="flex justify-center">Landing Page</h1>
 </section>
